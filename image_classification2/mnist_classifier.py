@@ -87,6 +87,8 @@ def test_loop(dataloader,model,loss_fn):
 epochs = 10
 for t in range(epochs):
     print(f"Epoch {t+1}\n-------------------------------")
+    net=net.train()
     train_loop(trainloader, net, loss_fn, optimizer)
+    net=net.eval()
     test_loop(testloader, net, loss_fn)
 print("Done!")
