@@ -106,6 +106,10 @@ Walker2DBulletEnv-v0:
   <<: *pybullet-defaults
   learning_rate: lin_7.3e-4
 
+Hopper-v3:
+  <<: *pybullet-defaults
+  learning_rate: lin_7.3e-4
+
 
 # Tuned
 ReacherBulletEnv-v0:

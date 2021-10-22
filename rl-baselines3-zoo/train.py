@@ -17,8 +17,6 @@ from utils.utils import ALGOS, StoreDict
 
 seaborn.set()
 
-print('HopperBulletEnv-v0' in set(gym.envs.registry.env_specs.keys()))
-
 if __name__ == "__main__":  # noqa: C901
     parser = argparse.ArgumentParser()
     parser.add_argument("--algo", help="RL Algorithm", default="ppo", type=str, required=False, choices=list(ALGOS.keys()))
@@ -117,8 +115,6 @@ if __name__ == "__main__":  # noqa: C901
     )
     parser.add_argument("-uuid", "--uuid", action="store_true", default=False, help="Ensure that the run has a unique ID")
     args = parser.parse_args()
-
-    print('HopperBulletEnv-v0' in set(gym.envs.registry.env_specs.keys()))
 
     # Going through custom gym packages to let them register in the global registory
     for env_module in args.gym_packages:
