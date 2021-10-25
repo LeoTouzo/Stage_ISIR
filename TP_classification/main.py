@@ -83,14 +83,19 @@ optimizer = torch.optim.SGD(net.parameters(), lr=learning_rate, momentum=momentu
 
 # net.load_state_dict(torch.load('./data/model_TP.pt'))
 
-evaluate(net, data)
-
 num_epochs = 100
+epochs = np.arange(num_epochs+1)
+accuracy = [evaluate(net, data)]
 for j in range(num_epochs):
     print(f"epoch {j} / {num_epochs}")
     train_epoch(net, optimizer, data)
-    evaluate(net, data)
+    accuracy.append(evaluate(net, data))
     torch.save(net.state_dict(), './data/model_TP.pt')
+
+# plt.plot(epochs,accuracy)
+# plt.xlabel('epoch')
+# plt.ylabel('accuracy')
+np.savetxt('.data/accuracy.txt',accuracy)
 
 indices = np.random.choice(range(data.num_test_samples), 20)
 
