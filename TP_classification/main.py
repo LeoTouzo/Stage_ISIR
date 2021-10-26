@@ -165,10 +165,10 @@ for j in range(num_epochs):
         print(j)
 
 plt.plot(epochs,loss_list)
-np.savetxt('.data/young_loss.txt',loss_list)
 plt.xlabel('epoch')
 plt.ylabel('P(class=0)')
 plt.figure()
+np.savetxt('./data/young_loss.txt',loss_list)
 print(nn.Softmax()(net(x)))
 im = np.transpose(x.detach().numpy(),(1,2,0))
 np.savetxt('./data/young.txt',im)
